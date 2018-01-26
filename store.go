@@ -6,25 +6,32 @@ import (
 	"github.com/fsm/fsm"
 )
 
-type CacheStore struct {
-	Traversers map[string]fsm.Traverser
+// New returns an instance of a cacheStore
+func New() fsm.Store {
+	return &cacheStore{
+		traversers: make(map[string]fsm.Traverser, 0),
+	}
 }
 
-func (s *CacheStore) FetchTraverser(uuid string) (fsm.Traverser, error) {
-	if traverser, ok := s.Traversers[uuid]; ok {
+type cacheStore struct {
+	traversers map[string]fsm.Traverser
+}
+
+func (s *cacheStore) FetchTraverser(uuid string) (fsm.Traverser, error) {
+	if traverser, ok := s.traversers[uuid]; ok {
 		return traverser, nil
 	}
 	return nil, errors.New("Traverser does not exist")
 }
 
-func (s *CacheStore) CreateTraverser(uuid string) (fsm.Traverser, error) {
-	if _, ok := s.Traversers[uuid]; ok {
+func (s *cacheStore) CreateTraverser(uuid string) (fsm.Traverser, error) {
+	if _, ok := s.traversers[uuid]; ok {
 		return nil, errors.New("Traverser with UUID already exists")
 	}
 	traverser := &cachedTraverser{
 		Data: make(map[string]interface{}, 0),
 	}
 	traverser.SetUUID(uuid)
-	s.Traversers[uuid] = traverser
+	s.traversers[uuid] = traverser
 	return traverser, nil
 }
