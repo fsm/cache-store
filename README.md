@@ -2,6 +2,11 @@
 
 # Cache Store
 
+[![Version](https://img.shields.io/github/tag/fsm/cache-store.svg)](https://github.com/fsm/cache-store/releases)
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/fsm/cache-store/blob/master/LICENSE.md)
+[![Go Report Card](https://goreportcard.com/badge/github.com/fsm/cache-store)](https://goreportcard.com/report/github.com/fsm/cache-store)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/fsm/Lobby)
+
 This package is a in-memory cache implementation of a [fsm.Store](https://github.com/fsm/fsm/blob/master/fsm.go#L33-L38).
 
 > Note: This store is NOT recommended for use in production, but is the quickest way to get started in development.
@@ -18,7 +23,3 @@ func main() {
     // ...
 }
 ```
-
-# License
-
-[MIT](LICENSE.md)
