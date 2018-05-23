@@ -2,9 +2,9 @@
 
 # Cache Store
 
-This package is a in-memory cache implementation of a [fsm](https://github.com/fsm/fsm).[Store](https://github.com/fsm/fsm/blob/master/fsm.go#L29-L34).
+This package is a in-memory cache implementation of a [fsm.Store](https://github.com/fsm/fsm/blob/master/fsm.go#L33-L38).
 
-> Note: This store is NOT recommended for use in production, but is super useful in development.
+> Note: This store is NOT recommended for use in production, but is the quickest way to get started in development.
 
 ## Getting Started
 
